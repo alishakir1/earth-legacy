@@ -1,0 +1,12 @@
+work/
+outputs/
+app/build/
+node_modules/
+__pycache__/
+*.pyc
+*.apk
+*.idsig
+*.keystore
+*.jks
+.env
+.env.*

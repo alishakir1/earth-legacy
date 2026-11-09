@@ -1,0 +1,37 @@
+{
+  "version": "0.5.0",
+  "apk_sha256": "0219e6f3a62f33073d19873fc43a2ced0ffe174d1aac0388e1380996075a0224",
+  "passed": [
+    "Startup studio → language; 115 levels / 30 collections; initial level lock; Ibn Sina remains level 22",
+    "Museum lists 30 civilizations, search works, locked characters and images remain hidden",
+    "All six profile sections work in Arabic and English; settings persist; ad-free and restore messages are accurate",
+    "Tap, misplaced piece remains and can be moved, drag placement, assistance hint, partial puzzle save and reload",
+    "Completing level 1 reveals level 2 and connecting line; seven-field bilingual discovery card; earned museum card",
+    "All 116 progression states checked; 24/40/60-piece cycle and actual 40/60-piece completion",
+    "Required fields present in all 115 cards; 44-level saves upgrade; old square-grid saves migrate; out-of-order saves cannot skip first unsolved level",
+    "Reset confirmation cancellation preserves progress; confirmation resets progress",
+    "Leaving during image load or completion delay does not reopen stale puzzle/card",
+    "No horizontal overflow at 360, 412, 768 and landscape 915 px, both languages and all profile sheets",
+    "Malformed null save recovers without crash",
+    "No JavaScript errors or external network requests"
+  ],
+  "screenshots": [
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\01-studio.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\02-language.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\03-earth-ar.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\04-museum-ar.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\05-me-ar.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\06-settings-ar.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\07-me-en.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\08-puzzle-en.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\09-discovery-en.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\10-earth-progress-ar.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\11-earned-collection-ar.png",
+    "C:\\Users\\ALI-SHAKER\\Documents\\Codex\\2026-10-28\\referenced-chatgpt-conversation-this-is-an-2\\outputs\\Earth_Legacy\\preview\\12-discovery-ar.png"
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "testedAt": "2026-11-05T18:32:09.343Z",
+  "environment": "Headless Chrome, packaged APK web assets, synthetic HTTPS fulfilled from local files; no network server",
+  "status": "passed"
+}

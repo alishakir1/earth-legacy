@@ -1,0 +1,24 @@
+{
+  "version": "0.5.0",
+  "apk_sha256": "0219e6f3a62f33073d19873fc43a2ced0ffe174d1aac0388e1380996075a0224",
+  "testedAt": "2026-11-05T18:32:09.352Z",
+  "environment": "Chrome mobile/touch, local assets extracted from signed APK; no network server",
+  "passed": [
+    "Map keeps the discovery secret and accurately resumes a legacy partial puzzle",
+    "Edge filter works for 24/40/60 pieces; page assistance places only visible edges, then offers the remaining center pieces",
+    "Tray filter, page and positions survive resume; returning an interior piece reveals it in the All pieces tray",
+    "Board zooms to 200%, pans without changing progress, accepts real drops after scrolling, rejects drops outside the viewport, and resets to fit",
+    "Discovery preserves all seven sourced fields and opens the earned museum collection; recent discoveries and owned-only search never reveal locked cards",
+    "Zoomed/filtered gameplay and museum fit Arabic and English at phone, tablet and landscape sizes with no script errors"
+  ],
+  "errors": [],
+  "screenshots": [
+    "preview/22-journey-design.png",
+    "preview/23-edges-progress.png",
+    "preview/24-zoomed-puzzle.png",
+    "preview/25-discovery-design.png",
+    "preview/26-museum-discoveries.png",
+    "preview/27-landscape-workspace.png"
+  ],
+  "status": "passed"
+}

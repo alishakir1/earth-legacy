@@ -1,0 +1,182 @@
+[
+  {
+    "civilization_id": "egypt",
+    "name_ar": "مصر القديمة",
+    "name_en": "Ancient Egypt",
+    "count": 6
+  },
+  {
+    "civilization_id": "mesopotamia",
+    "name_ar": "بلاد الرافدين",
+    "name_en": "Mesopotamia",
+    "count": 7
+  },
+  {
+    "civilization_id": "rome",
+    "name_ar": "روما القديمة",
+    "name_en": "Ancient Rome",
+    "count": 3
+  },
+  {
+    "civilization_id": "mughal",
+    "name_ar": "الهند المغولية",
+    "name_en": "Mughal India",
+    "count": 4
+  },
+  {
+    "civilization_id": "europe_early_modern",
+    "name_ar": "أوروبا في العصر الحديث المبكر",
+    "name_en": "Early Modern Europe",
+    "count": 6
+  },
+  {
+    "civilization_id": "north_america_republic",
+    "name_ar": "أمريكا الشمالية: عصر الاستقلال",
+    "name_en": "North America: Independence Era",
+    "count": 2
+  },
+  {
+    "civilization_id": "greece",
+    "name_ar": "اليونان القديمة",
+    "name_en": "Ancient Greece",
+    "count": 6
+  },
+  {
+    "civilization_id": "persia",
+    "name_ar": "إيران القديمة",
+    "name_en": "Ancient Iran",
+    "count": 2
+  },
+  {
+    "civilization_id": "byzantium",
+    "name_ar": "بيزنطة",
+    "name_en": "Byzantium",
+    "count": 5
+  },
+  {
+    "civilization_id": "islamic_medieval",
+    "name_ar": "المجتمعات الإسلامية الوسيطة",
+    "name_en": "Medieval Islamic Societies",
+    "count": 10
+  },
+  {
+    "civilization_id": "ottoman",
+    "name_ar": "العثمانيون",
+    "name_en": "Ottoman World",
+    "count": 3
+  },
+  {
+    "civilization_id": "china",
+    "name_ar": "الصين التاريخية",
+    "name_en": "Historical China",
+    "count": 7
+  },
+  {
+    "civilization_id": "japan",
+    "name_ar": "اليابان التاريخية",
+    "name_en": "Historical Japan",
+    "count": 4
+  },
+  {
+    "civilization_id": "korea",
+    "name_ar": "كوريا التاريخية",
+    "name_en": "Historical Korea",
+    "count": 6
+  },
+  {
+    "civilization_id": "south_asia",
+    "name_ar": "جنوب آسيا خارج المسار المغولي",
+    "name_en": "South Asia beyond the Mughal Track",
+    "count": 4
+  },
+  {
+    "civilization_id": "khmer",
+    "name_ar": "الخمير",
+    "name_en": "Khmer",
+    "count": 3
+  },
+  {
+    "civilization_id": "maya",
+    "name_ar": "المايا",
+    "name_en": "Maya",
+    "count": 2
+  },
+  {
+    "civilization_id": "mexica",
+    "name_ar": "المكسيكا وحلفاؤهم في وسط المكسيك",
+    "name_en": "Mexica (Aztec)",
+    "count": 2
+  },
+  {
+    "civilization_id": "inca",
+    "name_ar": "الإنكا",
+    "name_en": "Inca",
+    "count": 2
+  },
+  {
+    "civilization_id": "nubia",
+    "name_ar": "النوبة وكوش",
+    "name_en": "Nubia and Kush",
+    "count": 3
+  },
+  {
+    "civilization_id": "ethiopia",
+    "name_ar": "إثيوبيا التاريخية",
+    "name_en": "Historical Ethiopia",
+    "count": 3
+  },
+  {
+    "civilization_id": "mali_songhai",
+    "name_ar": "مالي وصنغاي",
+    "name_en": "Mali and Songhai",
+    "count": 3
+  },
+  {
+    "civilization_id": "benin",
+    "name_ar": "مملكة بنين",
+    "name_en": "Kingdom of Benin",
+    "count": 3
+  },
+  {
+    "civilization_id": "polynesia",
+    "name_ar": "مجتمعات بولينيزيا",
+    "name_en": "Polynesian Societies",
+    "count": 5
+  },
+  {
+    "civilization_id": "java",
+    "name_ar": "جاوة التاريخية",
+    "name_en": "Historical Java",
+    "count": 4
+  },
+  {
+    "civilization_id": "iraq_modern",
+    "name_ar": "العراق الحديث",
+    "name_en": "Modern Iraq",
+    "count": 4
+  },
+  {
+    "civilization_id": "ndongo_matamba",
+    "name_ar": "ندونغو وماتامبا",
+    "name_en": "Ndongo and Matamba",
+    "count": 1
+  },
+  {
+    "civilization_id": "cherokee",
+    "name_ar": "أمة الشيروكي",
+    "name_en": "Cherokee Nation",
+    "count": 2
+  },
+  {
+    "civilization_id": "new_spain",
+    "name_ar": "إسبانيا الجديدة — المكسيك الاستعمارية",
+    "name_en": "New Spain — Colonial Mexico",
+    "count": 1
+  },
+  {
+    "civilization_id": "philippines",
+    "name_ar": "الفلبين — مسارات تاريخية",
+    "name_en": "Philippines — Historical Traditions",
+    "count": 2
+  }
+]

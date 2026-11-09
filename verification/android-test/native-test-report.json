@@ -1,0 +1,92 @@
+{
+  "app": "Earth Legacy",
+  "version": "0.3.1",
+  "version_code": 6,
+  "apk_sha256": "89d57c872fc1fe3b8768cdea4829c198cab6ba1c0aa4ea1fe30d1cd5855a94dc",
+  "device": {
+    "avd": "EarthLegacyQA",
+    "android": "15",
+    "api": 35,
+    "resolution": "720x1280",
+    "density_dpi": 240,
+    "abi": "x86_64"
+  },
+  "tested_on": "2026-11-03",
+  "evidence_reviewed_at": "2026-11-03T20:39:14.378292+00:00",
+  "status": "core_smoke_checks_passed_remaining_native_checks_pending",
+  "method": "Installed signed release APK. Actual Android touchscreen events via the dedicated emulator ADB transport; visual review of Android screencaps. No app save or JavaScript state injected in the native puzzle test.",
+  "passed": [
+    {
+      "check": "Release 0.3.1 opens on Android 15 after update installation",
+      "evidence": [
+        "031-language.png",
+        "031-touch-check.png"
+      ]
+    },
+    {
+      "check": "System status/navigation bars no longer overlap the header and fixed bottom navigation",
+      "evidence": [
+        "031-touch-check.png",
+        "native-card-details.png"
+      ]
+    },
+    {
+      "check": "Two already placed pieces preserved when updating from 0.3.0 to 0.3.1",
+      "evidence": [
+        "partial-before-update.png",
+        "031-partial-restored.png"
+      ]
+    },
+    {
+      "check": "Actual tap/drag placement and rejection of an incorrect target",
+      "evidence": [
+        "native-puzzle-report.json",
+        "native-drag-placement.png",
+        "native-wrong-placement.png"
+      ]
+    },
+    {
+      "check": "24-piece level 1 completed and Akbar discovery card displayed",
+      "evidence": [
+        "native-puzzle-report.json",
+        "native-completed-card.png"
+      ]
+    },
+    {
+      "check": "After level 1: level 2 and connection 1–2 visible, level 3 remains hidden",
+      "evidence": [
+        "native-card-details.png"
+      ]
+    },
+    {
+      "check": "Museum collection screen renders with bottom tabs above Android navigation",
+      "evidence": [
+        "native-museum-settled.png"
+      ]
+    }
+  ],
+  "fix": {
+    "file": "app/android/src/com/erth/jigsaw/MainActivity.java",
+    "description": "Apply Android window insets to an outer FrameLayout, resizing the actual WebView viewport so fixed HTML controls remain inside the available screen."
+  },
+  "remaining_native_checks": [
+    "Open earned card from museum and return with Android Back",
+    "Settings, English language switch, help/privacy/ad-free/restore sheets",
+    "Fresh relaunch persistence after first-level completion",
+    "Soft keyboard, rotation and gesture-navigation layout"
+  ],
+  "covered_in_browser_only": [
+    "All 116 progression states",
+    "40-piece and 60-piece completion",
+    "Bilingual settings and cards",
+    "Earned museum card and search",
+    "Partial-save reload, legacy-save migration, reset confirmation",
+    "Responsive widths 360/412/768/915"
+  ],
+  "limitations": [
+    "No physical Android phone tested",
+    "Other Android releases not runtime-tested",
+    "Native log records emulator shutdown before remaining checks; no current live emulator at the time of evidence review",
+    "A museum scroll position observed while the user was interacting was not reproduced in isolation; no app defect established"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "version": "0.5.0",
+  "apk_sha256": "0219e6f3a62f33073d19873fc43a2ced0ffe174d1aac0388e1380996075a0224",
+  "testedAt": "2026-11-05T18:32:09.368Z",
+  "environment": "Chrome touch viewport, local files extracted from APK, no network server",
+  "passed": [
+    "Four labeled assistance icons beside Back, with touch targets; a newly correct piece gets a visible transient glow that expires",
+    "Correct pieces cannot be selected, dragged, returned, swapped or displaced by a tray piece; cleanup keeps them fixed",
+    "Page placement also locks and highlights only newly solved pieces; resume/cancel/Escape/Android Back never erase saved progress",
+    "Locked positions survive page reload and Continue; picture preview and hint work directly from the toolbar",
+    "Restart only clears this puzzle after the explicit red action; museum rewards remain; empty puzzles open directly",
+    "A save containing only misplaced pieces also offers Continue, Restart and Cancel",
+    "All three actions fit phone/tablet/landscape screens in Arabic and English; no JavaScript errors"
+  ],
+  "errors": [],
+  "screenshots": [
+    "preview/17-correct-piece-glow.png",
+    "preview/18-top-puzzle-toolbar.png",
+    "preview/19-resume-options-ar.png",
+    "preview/20-picture-preview.png",
+    "preview/21-resume-options-en.png"
+  ],
+  "status": "passed"
+}

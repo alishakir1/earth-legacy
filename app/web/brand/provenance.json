@@ -1,0 +1,13 @@
+{
+  "icon": {
+    "source": "ايقونة التطبيق jpeg.jpeg",
+    "sha256": "23e82a55f5f3b6d7f9e71cacc344dbb4715b08ec4f944c9949dff434c80d3290",
+    "transform": "center-square crop; resize for app icon"
+  },
+  "studio": {
+    "source": "اسم الاستديو .jpeg",
+    "sha256": "df54789de8f809d59041a9c653f37cec2462cd87552520c38820ede0a212d869",
+    "transform": "original file copied without artwork alteration"
+  },
+  "rights": "user_supplied_artwork"
+}

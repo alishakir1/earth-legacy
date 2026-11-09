@@ -1,0 +1,26 @@
+{
+  "version": "0.5.0",
+  "apk_sha256": "0219e6f3a62f33073d19873fc43a2ced0ffe174d1aac0388e1380996075a0224",
+  "testedAt": "2026-11-05T18:32:09.391Z",
+  "environment": "Chrome mobile/touch; assets extracted from signed APK; no network",
+  "passed": [
+    "New players see only their current chapter; daily play and cosmetic rewards require discoveries; journal supports Android Back",
+    "Real pointer drags join and move a three-piece group, preserve it after reload, return it to the tray and lock it at the correct location; edge and collision rejection is atomic",
+    "Connected-piece dragging and locking also work on the 40- and 60-piece boards",
+    "Completion reveals the seamless artwork, retains all seven source fields, offers an optional source-derived quiz and animates the earned frame into its room",
+    "Empty rooms hide locked portraits; earned collections illuminate rooms; myth wings and civilization filters only show their stated content type",
+    "Daily assignment and partial save survive reload/cancel/continue; completion counts once and never overwrites the main puzzle or advances its level; cosmetic selection persists",
+    "Restarting a saved daily puzzle clears only its own board; main partial progress and collection remain unchanged; reduced-motion completion works",
+    "New room, journal, card and daily entry fit phone/tablet/landscape in both languages with no script errors or network requests"
+  ],
+  "errors": [],
+  "screenshots": [
+    "preview/28-connected-pieces.png",
+    "preview/29-discovery-story.png",
+    "preview/30-museum-empty.png",
+    "preview/31-museum-lit.png",
+    "preview/32-myth-wing.png",
+    "preview/33-journey-journal.png"
+  ],
+  "status": "passed"
+}

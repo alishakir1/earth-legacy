@@ -1,0 +1,25 @@
+{
+  "version": "0.5.0",
+  "apk_sha256": "0219e6f3a62f33073d19873fc43a2ced0ffe174d1aac0388e1380996075a0224",
+  "testedAt": "2026-11-05T18:32:09.327Z",
+  "environment": "Headless Chrome touch viewport, assets extracted from signed APK, synthetic HTTPS served from local files without a network server",
+  "passed": [
+    "Every pixel of the empty board is uniform; preview is opt-in; Back closes the picture preview without leaving the puzzle",
+    "Touch placement in a wrong cell stays on the board and persists after reload with tray order/page",
+    "A board piece can be dragged elsewhere, dragged back, returned by button, or returned by tapping the tray",
+    "Occupied cells preserve pieces; board-to-board movement swaps; page helper snapshots only page 2, returns its blocker, and leaves unrelated wrong pieces untouched",
+    "Clear misplaced returns only incorrect pieces and preserves every correct piece",
+    "Visible-page assistance completes 24/40/60-piece puzzles across multiple pages, handles the 4-piece final page and unlocks only the next level",
+    "0.3.1 partial saves migrate; confirmed restart clears correct and incorrect positions and stays cleared after reopening",
+    "A full board of wrong pieces does not complete the level; empty-page assistance is disabled and cleanup restores all pieces",
+    "Assistance fits mobile/tablet/landscape in Arabic and English with no JavaScript errors"
+  ],
+  "errors": [],
+  "screenshots": [
+    "preview/13-blank-board-ar.png",
+    "preview/14-misplaced-piece-ar.png",
+    "preview/15-assistance-page-two-ar.png",
+    "preview/16-page-two-placed-ar.png"
+  ],
+  "status": "passed"
+}
