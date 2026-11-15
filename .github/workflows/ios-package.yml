@@ -1,0 +1,99 @@
+name: Build iPhone package and launch simulator
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/ios-package.yml'
+permissions:
+  contents: read
+concurrency:
+  group: ios-package-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  ios-package:
+    runs-on: macos-15
+    timeout-minutes: 35
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.2.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run check
+      - run: npm run sync:ios
+      - name: Build native iPhone application without signing
+        run: >-
+          xcodebuild -project ios/App/App.xcodeproj -scheme App
+          -configuration Release -sdk iphoneos
+          -destination 'generic/platform=iOS'
+          -derivedDataPath artifacts/ios-device
+          CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
+      - name: Package and verify unsigned iPhone application
+        run: |
+          mkdir -p artifacts/delivery
+          APP=artifacts/ios-device/Build/Products/Release-iphoneos/App.app
+          test -f "$APP/App"
+          xcrun lipo -archs "$APP/App" | tee artifacts/delivery/iphone-architectures.txt
+          xcrun lipo -verify_arch arm64 "$APP/App"
+          ditto -c -k --sequesterRsrc --keepParent "$APP" artifacts/delivery/Earth-Legacy-0.6.0-iPhone-Unsigned.zip
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, plistlib, hashlib, os
+          app=Path('artifacts/ios-device/Build/Products/Release-iphoneos/App.app')
+          info=plistlib.loads((app/'Info.plist').read_bytes())
+          assert info['CFBundleIdentifier']=='com.erth.jigsaw'
+          assert info['CFBundleShortVersionString']=='0.6.0'
+          assert info['CFBundleSupportedPlatforms']==['iPhoneOS']
+          assert not (app/'embedded.mobileprovision').exists()
+          assert len(json.loads((app/'public/content.json').read_text()))==115
+          assert len(list((app/'public/images').glob('*.webp')))==115
+          archive=Path('artifacts/delivery/Earth-Legacy-0.6.0-iPhone-Unsigned.zip')
+          report={'platform':'iPhoneOS','version':'0.6.0','bundle_id':info['CFBundleIdentifier'],'architecture':'arm64','signing':'unsigned; signing and provisioning required before installation','source_commit':os.environ['GITHUB_SHA'],'sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'levels':115,'device_launch_test':False}
+          Path('artifacts/delivery/iphone-build.json').write_text(json.dumps(report,indent=2))
+          Path('artifacts/delivery/README-iPhone.txt').write_text('Earth Legacy 0.6.0\n\nThis archive contains an unsigned Release application compiled for a physical iPhone (arm64). It is not an installable IPA. Signing and provisioning with the owner\'s Apple account are required before device installation or distribution. No Apple credentials were used for this build.\n',encoding='utf-8')
+          PY
+      - name: Build the simulator application
+        run: >-
+          xcodebuild -project ios/App/App.xcodeproj -scheme App
+          -configuration Debug -sdk iphonesimulator
+          -destination 'generic/platform=iOS Simulator'
+          -derivedDataPath artifacts/ios-simulator
+          CODE_SIGNING_ALLOWED=NO build
+      - name: Install and launch on an iPhone simulator
+        run: |
+          python3 - <<'PY'
+          import subprocess, json, time, os
+          from pathlib import Path
+          def run(*args):
+              return subprocess.check_output(args,text=True).strip()
+          devices=json.loads(run('xcrun','simctl','list','devices','available','--json'))['devices']
+          phones=[d for runtime,items in devices.items() if '.iOS-' in runtime for d in items if d.get('isAvailable') and d['name'].startswith('iPhone')]
+          assert phones,'The runner has no available iPhone simulator'
+          phone=phones[0]; device=phone['udid']
+          if phone['state']!='Booted':run('xcrun','simctl','boot',device)
+          run('xcrun','simctl','bootstatus',device,'-b')
+          run('xcrun','simctl','status_bar',device,'override','--time','9:41','--batteryState','charged','--batteryLevel','100')
+          app='artifacts/ios-simulator/Build/Products/Debug-iphonesimulator/App.app'
+          run('xcrun','simctl','install',device,app)
+          launch=run('xcrun','simctl','launch','--terminate-running-process',device,'com.erth.jigsaw')
+          time.sleep(12)
+          processes=run('xcrun','simctl','spawn',device,'launchctl','list')
+          app_rows=[line.split() for line in processes.splitlines() if 'com.erth.jigsaw' in line]
+          assert any(row[0].isdigit() and int(row[0])>0 for row in app_rows),'The app did not remain running after launch'
+          run('xcrun','simctl','io',device,'screenshot','artifacts/delivery/ios-first-launch.png')
+          report={'platform':'iOS Simulator','device_name':phone['name'],'source_commit':os.environ['GITHUB_SHA'],'launch_result':launch,'process_running_after_seconds':12,'screenshot':'ios-first-launch.png','scope':'native launch smoke test; screenshot requires visual review; not a full interaction or physical device test'}
+          Path('artifacts/delivery/ios-launch.json').write_text(json.dumps(report,indent=2))
+          PY
+      - name: Package simulator application
+        run: ditto -c -k --sequesterRsrc --keepParent artifacts/ios-simulator/Build/Products/Debug-iphonesimulator/App.app artifacts/delivery/Earth-Legacy-0.6.0-iOS-Simulator.zip
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: earth-legacy-iphone-builds
+          path: artifacts/delivery/
+          if-no-files-found: error
+          retention-days: 30
