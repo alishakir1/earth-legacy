@@ -38,7 +38,7 @@ jobs:
           APP=artifacts/ios-device/Build/Products/Release-iphoneos/App.app
           test -f "$APP/App"
           xcrun lipo -archs "$APP/App" | tee artifacts/delivery/iphone-architectures.txt
-          xcrun lipo -verify_arch arm64 "$APP/App"
+          xcrun lipo "$APP/App" -verify_arch arm64
           ditto -c -k --sequesterRsrc --keepParent "$APP" artifacts/delivery/Earth-Legacy-0.6.0-iPhone-Unsigned.zip
           python3 - <<'PY'
           from pathlib import Path
