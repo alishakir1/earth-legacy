@@ -1,0 +1,16 @@
+{
+  "version": "0.6.0",
+  "native_bundle_sha256": "a50b3827a4425eace2b3640d3f78d6c9274d37ac99566d166edf95d4a5b16144",
+  "passed": [
+    "Map keeps the discovery secret and accurately resumes a legacy partial puzzle",
+    "Edge filter works for 24/40/60 pieces; page assistance places only visible edges, then offers the remaining center pieces",
+    "Tray filter, page and positions survive resume; returning an interior piece reveals it in the All pieces tray",
+    "Board zooms to 200%, pans without changing progress, accepts real drops after scrolling, rejects drops outside the viewport, and resets to fit",
+    "Discovery preserves all seven sourced fields and opens the earned museum collection; recent discoveries and owned-only search never reveal locked cards",
+    "Zoomed/filtered gameplay and museum fit Arabic and English at phone, tablet and landscape sizes with no script errors"
+  ],
+  "status": "passed",
+  "engine": "chromium",
+  "environment": "Windows browser engine; shared cross-platform source; not a native device test",
+  "date": "2026-11-15"
+}

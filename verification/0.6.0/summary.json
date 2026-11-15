@@ -1,0 +1,15 @@
+{
+  "version": "0.6.0",
+  "date": "2026-11-15",
+  "regression_checks_passed": 84,
+  "bridge_checks_passed": 6,
+  "native_bridge": "mocked Capacitor APIs in Chromium and WebKit",
+  "android_build": "passed: Gradle assembleRelease",
+  "ios_native_build": "not performed locally; Windows host; workflow provided",
+  "device_tests": "not performed",
+  "research_content_changed": false,
+  "android_apk": "Earth-Legacy-0.6.0.apk",
+  "android_apk_sha256": "e3d0bbbf88bc8af1fb6bd33d822c687806237c37462cf57233f01777715dca2e",
+  "android_signer_matches_0_5_0": true,
+  "android_apk_bytes": 37730479
+}

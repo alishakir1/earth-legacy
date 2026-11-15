@@ -1,0 +1,36 @@
+{
+  "name": "earth-legacy",
+  "version": "0.6.0",
+  "private": true,
+  "type": "module",
+  "description": "Earth Legacy — offline civilization jigsaw game for Android and iOS",
+  "license": "UNLICENSED",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "tsc --noEmit && node scripts/check-content.mjs",
+    "sync": "npm run build && cap sync",
+    "sync:android": "npm run build && cap sync android",
+    "sync:ios": "npm run build && cap sync ios",
+    "android": "npm run sync:android && cap open android",
+    "ios": "npm run sync:ios && cap open ios",
+    "test": "npm run build && playwright test",
+    "test:legacy": "node scripts/run-regression.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.6.2",
+    "@capacitor/app": "8.1.2",
+    "@capacitor/browser": "8.0.5",
+    "@capacitor/core": "8.6.2",
+    "@capacitor/ios": "8.6.2",
+    "@capacitor/preferences": "8.0.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.6.2",
+    "@playwright/test": "1.65.1",
+    "@types/node": "^22.0.0",
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2"
+  }
+}

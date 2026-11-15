@@ -1,0 +1,22 @@
+{
+  "version": "0.6.0",
+  "native_bundle_sha256": "a50b3827a4425eace2b3640d3f78d6c9274d37ac99566d166edf95d4a5b16144",
+  "passed": [
+    "Startup studio → language; 115 levels / 30 collections; initial level lock; Ibn Sina remains level 22",
+    "Museum lists 30 civilizations, search works, locked characters and images remain hidden",
+    "All six profile sections work in Arabic and English; settings persist; ad-free and restore messages are accurate",
+    "Tap, misplaced piece remains and can be moved, drag placement, assistance hint, partial puzzle save and reload",
+    "Completing level 1 reveals level 2 and connecting line; seven-field bilingual discovery card; earned museum card",
+    "All 116 progression states checked; 24/40/60-piece cycle and actual 40/60-piece completion",
+    "Required fields present in all 115 cards; 44-level saves upgrade; old square-grid saves migrate; out-of-order saves cannot skip first unsolved level",
+    "Reset confirmation cancellation preserves progress; confirmation resets progress",
+    "Leaving during image load or completion delay does not reopen stale puzzle/card",
+    "No horizontal overflow at 360, 412, 768 and landscape 915 px, both languages and all profile sheets",
+    "Malformed null save recovers without crash",
+    "No JavaScript errors or external network requests"
+  ],
+  "status": "passed",
+  "engine": "chromium",
+  "environment": "Windows browser engine; shared cross-platform source; not a native device test",
+  "date": "2026-11-15"
+}

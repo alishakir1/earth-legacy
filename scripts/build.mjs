@@ -1,0 +1,10 @@
+import {cp, mkdir, readFile, writeFile} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {build} from 'esbuild';
+const root=resolve(import.meta.dirname,'..');
+await mkdir(resolve(root,'dist'),{recursive:true});
+await cp(resolve(root,'www'),resolve(root,'dist'),{recursive:true});
+await build({entryPoints:[resolve(root,'src/native.ts')],bundle:true,format:'iife',target:['chrome100','safari15.4'],outfile:resolve(root,'dist/native.js'),minify:true,legalComments:'eof'});
+const info=JSON.parse(await readFile(resolve(root,'package.json'),'utf8'));
+await writeFile(resolve(root,'dist/build.json'),JSON.stringify({version:info.version,platforms:['android','ios','web']}));
+console.log('Built shared game assets for Android, iOS and browser.');

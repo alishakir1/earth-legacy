@@ -1,0 +1,17 @@
+{
+  "version": "0.6.0",
+  "native_bundle_sha256": "a50b3827a4425eace2b3640d3f78d6c9274d37ac99566d166edf95d4a5b16144",
+  "passed": [
+    "Four labeled assistance icons beside Back, with touch targets; a newly correct piece gets a visible transient glow that expires",
+    "Correct pieces cannot be selected, dragged, returned, swapped or displaced by a tray piece; cleanup keeps them fixed",
+    "Page placement also locks and highlights only newly solved pieces; resume/cancel/Escape/Android Back never erase saved progress",
+    "Locked positions survive page reload and Continue; picture preview and hint work directly from the toolbar",
+    "Restart only clears this puzzle after the explicit red action; museum rewards remain; empty puzzles open directly",
+    "A save containing only misplaced pieces also offers Continue, Restart and Cancel",
+    "All three actions fit phone/tablet/landscape screens in Arabic and English; no JavaScript errors"
+  ],
+  "status": "passed",
+  "engine": "webkit",
+  "environment": "Windows browser engine; shared cross-platform source; not a native device test",
+  "date": "2026-11-15"
+}

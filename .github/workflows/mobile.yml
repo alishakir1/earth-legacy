@@ -1,0 +1,84 @@
+name: Test and build mobile apps
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mobile-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  game-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - run: npm run check
+      - run: npm test
+      - run: npm run test:legacy
+      - run: npm run test:legacy
+        env:
+          TEST_ENGINE: webkit
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: game-test-results
+          path: artifacts/
+          retention-days: 14
+  android:
+    needs: game-tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - run: npm ci
+      - run: npm run sync:android
+      - name: Build development APK
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleDebug
+      - uses: actions/upload-artifact@v4
+        with:
+          name: earth-legacy-android-development
+          path: android/app/build/outputs/apk/debug/*.apk
+          retention-days: 14
+  ios-simulator:
+    needs: game-tests
+    runs-on: macos-15
+    timeout-minutes: 25
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.2.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run sync:ios
+      - name: Compile for the iOS Simulator without distribution credentials
+        run: xcodebuild -project ios/App/App.xcodeproj -scheme App -configuration Debug -sdk iphonesimulator -destination 'generic/platform=iOS Simulator' -derivedDataPath artifacts/ios-derived CODE_SIGNING_ALLOWED=NO build
+      - name: Package simulator application
+        run: ditto -c -k --sequesterRsrc --keepParent artifacts/ios-derived/Build/Products/Debug-iphonesimulator/App.app artifacts/Earth-Legacy-iOS-Simulator.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: earth-legacy-ios-simulator
+          path: artifacts/Earth-Legacy-iOS-Simulator.zip
+          retention-days: 14
